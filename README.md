@@ -1,6 +1,6 @@
 # solc-align
 
-A tool to align solidity storage and struct to 256 bits to maximizing storage reduction.
+A tool to align solidity contract storage and calldata struct to 256 bits to maximizing storage reduction.
 
 ## Install
 
