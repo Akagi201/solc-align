@@ -1,0 +1,13 @@
+uint256 chainId; // target withdraw chain
+bytes32 accountId;
+bytes32 r; // String to bytes32, big endian?
+bytes32 s;
+address sender;
+address receiver;
+string brokerId; // only this field is string, others should be bytes32 hashedBrokerId
+string tokenSymbol; // only this field is string, others should be bytes32 hashedTokenSymbol
+uint128 tokenAmount;
+uint128 fee;
+uint64 withdrawNonce;
+uint64 timestamp;
+uint8 v;
