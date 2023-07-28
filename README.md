@@ -1,11 +1,11 @@
-# solidity-storage-align
+# solc-align
 
 A tool to align solidity storage and struct to 256 bits to maximizing storage reduction.
 
 ## Install
 
 ```sh
-cargo install --git https://github.com/Akagi201/solidity-storage-align.git
+cargo install --git https://github.com/Akagi201/solc-align.git
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ case 1:
 just print to stdout.
 
 ```sh
-solidity-storage-align ./input.txt
+solc-align ./input.txt
 ```
 
 case 2:
@@ -25,5 +25,5 @@ case 2:
 write result to a file.
 
 ```sh
-solidity-storage-align ./input.txt ./output.txt
+solc-align ./input.txt ./output.txt
 ```
