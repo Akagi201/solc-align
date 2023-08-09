@@ -11,3 +11,5 @@ address receiver;
 uint64 timestamp;
 string brokerId; // only this field is string, others should be bytes32 hashedBrokerId
 string tokenSymbol; // only this field is string, others should be bytes32 hashedTokenSymbol
+address addr1;
+uint64 u1;

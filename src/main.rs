@@ -1,3 +1,4 @@
+mod align;
 mod cmd;
 mod declaration_parser;
 
@@ -31,6 +32,7 @@ fn main() {
         }
         b.mod_size.cmp(&a.mod_size)
     });
+    let decls = align::align_32bytes(&decls);
     if cli.output.is_some() {
         let file = File::create(cli.output.unwrap()).unwrap();
         let mut writer = BufWriter::new(file);

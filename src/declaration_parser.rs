@@ -28,7 +28,7 @@ impl StorageType {
         match self {
             StorageType::Bool => 1,
             StorageType::Integer(n) => (n / 8 - 1) % 32 + 1,
-            StorageType::Address => 32,
+            StorageType::Address => 20,
             StorageType::FixedBytes(n) => (n - 1) % 32 + 1,
             StorageType::Bytes => 32,
             StorageType::String => 32,
