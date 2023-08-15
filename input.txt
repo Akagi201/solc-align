@@ -1,15 +1,8 @@
-uint128 tokenAmount;
-uint128 fee;
-uint256 chainId; // target withdraw chain
-bytes32 accountId;
-bytes32 r; // String to bytes32, big endian?
-bytes32 s;
-uint8 v;
-address sender;
-uint64 withdrawNonce;
-address receiver;
-uint64 timestamp;
-string brokerId; // only this field is string, others should be bytes32 hashedBrokerId
-string tokenSymbol; // only this field is string, others should be bytes32 hashedTokenSymbol
-address addr1;
-uint64 u1;
+int128 positionQty;
+int128 costPosition;
+int128 lastSumUnitaryFundings;
+uint128 lastExecutedPrice;
+uint128 lastSettledPrice;
+uint128 averageEntryPrice;
+int128 openingCost;
+uint128 lastAdlPrice;

@@ -6,6 +6,9 @@ pub fn align_32bytes(decls: &[Declaration]) -> Vec<Declaration> {
     let mut result = Vec::new();
     let mut included = HashSet::new();
     for (i, v) in decls.iter().enumerate() {
+        if included.contains(&i) {
+            continue;
+        }
         result.push(decls[i].clone());
         if v.storage_type.mod_size() == 32 {
             continue;
