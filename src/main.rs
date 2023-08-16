@@ -1,6 +1,7 @@
 mod align;
 mod cmd;
 mod declaration_parser;
+mod utils;
 
 use std::{
     fs::File,
@@ -10,6 +11,7 @@ use std::{
 use clap::Parser;
 use cmd::Cli;
 use declaration_parser::Declaration;
+use utils::do_vecs_match;
 
 fn main() {
     let cli = Cli::parse();
@@ -26,6 +28,7 @@ fn main() {
         // println!("{:?}", decl);
         decls.push(decl);
     }
+    let input_decls = decls.clone();
     decls.sort_by(|a, b| {
         if a.mod_size == b.mod_size {
             return a.weight.cmp(&b.weight);
@@ -33,6 +36,10 @@ fn main() {
         b.mod_size.cmp(&a.mod_size)
     });
     let decls = align::align_32bytes(&decls);
+    if do_vecs_match(&decls, &input_decls) {
+        println!("No need to align");
+        return;
+    }
     if cli.output.is_some() {
         let file = File::create(cli.output.unwrap()).unwrap();
         let mut writer = BufWriter::new(file);

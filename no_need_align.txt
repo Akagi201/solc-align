@@ -1,0 +1,8 @@
+int128 positionQty;
+int128 costPosition;
+int128 lastSumUnitaryFundings;
+uint128 lastExecutedPrice;
+uint128 lastSettledPrice;
+uint128 averageEntryPrice;
+int128 openingCost;
+uint128 lastAdlPrice;
