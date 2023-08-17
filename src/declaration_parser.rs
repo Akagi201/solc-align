@@ -5,7 +5,7 @@ use crate::utils::{get_full_type, parse_array_size};
 pub struct Declaration {
     pub storage_type: StorageType,
     pub line: String,
-    pub mod_size: u32, // size mod by 256
+    pub mod_size: u32, // size mod by 32
     pub weight: u32,
 }
 
@@ -28,7 +28,7 @@ impl StorageType {
     pub fn mod_size(&self) -> u32 {
         match self {
             StorageType::Bool => 1,
-            StorageType::Integer(n) => (n / 8 - 1) % 32 + 1,
+            StorageType::Integer(n) => (n - 1) % 32 + 1,
             StorageType::Address => 20,
             StorageType::Bytes(n) => (n - 1) % 32 + 1,
             StorageType::String => 32,
@@ -63,12 +63,12 @@ impl StorageType {
             StorageType::Unknown => 1,
             StorageType::Struct => 2,
             StorageType::Mapping => 3,
-            StorageType::Address => 4,
-            StorageType::Integer(256) => 5,
-            StorageType::Bytes(32) => 6,
-            StorageType::String => 7,
-            StorageType::Array(_t, _n) => 8,
-            StorageType::Bytes(_n) => 9,
+            StorageType::Integer(32) => 4,
+            StorageType::Bytes(32) => 5,
+            StorageType::String => 6,
+            StorageType::Array(_t, _n) => 7,
+            StorageType::Bytes(_n) => 8,
+            StorageType::Address => 9,
             StorageType::Integer(_n) => 10,
             StorageType::Bool => 11,
         }

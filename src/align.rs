@@ -10,19 +10,22 @@ pub fn align_32bytes(decls: &[Declaration]) -> Vec<Declaration> {
             continue;
         }
         result.push(decls[i].clone());
+        included.insert(i);
+        // println!("normal included: {:?}", decls[i].clone());
         if v.storage_type.mod_size() == 32 {
             continue;
         } else {
             let j = i + 1;
             let mut size = v.storage_type.mod_size();
-            for j in j..decls.len() {
-                if included.contains(&j) {
+            for k in j..decls.len() {
+                if included.contains(&k) {
                     continue;
                 }
-                if size + decls[j].storage_type.mod_size() <= 32 {
-                    size += decls[j].storage_type.mod_size();
-                    included.insert(j);
-                    result.push(decls[j].clone());
+                if size + decls[k].storage_type.mod_size() <= 32 {
+                    size += decls[k].storage_type.mod_size();
+                    included.insert(k);
+                    result.push(decls[k].clone());
+                    // println!("small included: {:?}", decls[k].clone());
                 } else {
                     continue;
                 }
