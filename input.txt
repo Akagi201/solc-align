@@ -6,3 +6,6 @@ uint128 lastSettledPrice;
 uint128 averageEntryPrice;
 int128 openingCost;
 uint128 lastAdlPrice;
+int256[44] private __gap;
+bool[8] aaa;
+UNKNOWN bbb;
