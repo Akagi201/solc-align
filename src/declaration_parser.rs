@@ -32,7 +32,7 @@ impl StorageType {
             StorageType::Address => 20,
             StorageType::Bytes(n) => (n - 1) % 32 + 1,
             StorageType::String => 32,
-            StorageType::Array(t, n) => (t.mod_size() * n - 1) % 32 + 1,
+            StorageType::Array(t, n) => 32,
             StorageType::Struct => 32,
             StorageType::Mapping => 32,
             StorageType::Unknown => 32,
